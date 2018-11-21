@@ -66,7 +66,11 @@ class MailTemplate(models.Model):
             "templending": data["device"].templending,
             "trashed": data["device"].trashed,
             "webinterface": data["device"].webinterface,
-            "department": data["device"].department
+            "department": data["device"].department,
+            "archived": data["device"].archived,
+            "created_at": data["device"].created_at,
+            "creator": data["device"].creator,
+            "id": data["device"].id
         }
         if data["device"].currentlending is not None:
             datadict["device"]["currentlending"] = {
@@ -80,7 +84,8 @@ class MailTemplate(models.Model):
         datadict["user"] = {
             "username": data["user"].username,
             "first_name": data["user"].first_name,
-            "last_name": data["user"].last_name
+            "last_name": data["user"].last_name,
+            "main_department": data["user"].main_department
         }
         if "owner" in data:
             datadict["owner"] = {
